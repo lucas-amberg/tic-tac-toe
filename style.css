@@ -1,0 +1,65 @@
+@font-face {
+    font-family: 'Lilita One';
+    src: url('fonts/LilitaOne.woff2') format('woff2'),
+        url('fonts/LilitaOne.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    font-family: Lilita One;
+    --light-color: #e3e8f8;
+    --second-color: #c0c5cd;
+    --third-color: #3e588f;
+    --dark-color: #203562;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    gap: 20px;
+    background-color: var(--light-color);
+}
+
+.heading {
+    font-size: 4rem;
+    color: var(--dark-color)
+}
+
+.game-grid {
+    width: 450px;
+    height: 450px;
+    background-color: var(--dark-color);
+    display: grid;
+    grid-template-columns: repeat(3, 120px);
+    grid-template-rows: repeat(3, 120px);
+    gap: 20px;
+    justify-content: center;
+    align-content: center;
+    border-radius: 20px;
+}
+
+.game-button {
+    font-family: Lilita One;
+    color: var(--dark-color);
+    background-color: var(--second-color);
+    font-size: 6rem;
+    border-radius: 5px;
+    border:0;
+}
+
+.game-button:hover {
+    background-color: var(--third-color);
+    color:var(--light-color);
+    cursor: pointer;
+}
