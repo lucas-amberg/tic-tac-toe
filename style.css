@@ -63,3 +63,68 @@
     color:var(--light-color);
     cursor: pointer;
 }
+
+.game-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.player {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    height: 300px;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    width: 220px;
+}
+.player input{
+    appearance: none;
+    height: 50px;
+    font-family: Lilita One;
+    font-size: 1.5rem;
+    width: 8ch;
+    color: var(--light-color);
+    background-color: transparent;
+    border: 0;
+    padding: 5px;
+}
+
+.player-name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.player button {
+    appearance: none;
+    width: 7ch;
+    font-family: Lilita One;
+    background-color: var(--light-color);
+    border: 0;
+    border-radius: 5px;
+}
+
+.player button:hover {
+    background-color: var(--third-color);
+    cursor: pointer;
+    color: var(--light-color);
+}
+
+.score, .letter {
+    font-size: 1.5rem;
+}
+
+.player input::placeholder {
+    color: var(--light-color);
+}
+
+@media (max-width: 975px) {
+    .player {
+      display: none;
+    }
+  }
