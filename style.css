@@ -109,7 +109,8 @@
     border-radius: 5px;
 }
 
-.player button:hover {
+.player button:hover,
+.new-game-button:hover {
     background-color: var(--third-color);
     cursor: pointer;
     color: var(--light-color);
@@ -126,6 +127,40 @@
 .player-name-change {
     font-size: 2rem;
 }
+
+.game-end-container {
+    width: 300px;
+    height: 100px;
+    
+}
+.game-end-pop-up {
+    background-color: var(--dark-color);
+    display: none;
+    width: 300px;
+    height: 100px;
+    border-radius: 10px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.who-won {
+    font-size: 1.5rem;
+    color: var(--light-color);
+}
+
+.new-game-button {
+    appearance: none;
+    height: 40px;
+    background-color: var(--second-color);
+    color: var(--dark-color);
+    border: 0;
+    border-radius: 5px;
+    width: 150px;
+    font-family: Lilita One;
+}
+
 
 @media (max-width: 975px) {
     .player {

@@ -16,89 +16,112 @@ const gameBoard = function() {
         currentTurn = "X";
         documentElement.gameButtons.forEach((item) => {
             item.textContent = "";
+            item.removeAttribute("disabled");
         });
+        documentElement.popUp.style.display = "none";
+    }
+    function _endGame() {
+        documentElement.gameButtons.forEach((item) => {
+            item.setAttribute("disabled", true);
+        })
+        documentElement.popUp.style.display = "flex";
     }
     function _checkGameStatus() {
         if (currentGameboard[0] === "X" && 
         currentGameboard[1] === "X" &&
         currentGameboard[2] === "X") {
             playerOne.win();
+            _endGame();
         }
         else if (currentGameboard[0] === "O" && 
         currentGameboard[1] === "O" &&
         currentGameboard[2] === "O") {
             playerTwo.win();
+            _endGame();
         }
         else if (currentGameboard[3] === "X" && 
         currentGameboard[4] === "X" &&
         currentGameboard[5] === "X") {
             playerOne.win();
+            _endGame();
         }
         else if (currentGameboard[3] === "O" && 
         currentGameboard[4] === "O" &&
         currentGameboard[5] === "O") {
             playerTwo.win();
+            _endGame();
         }
         else if (currentGameboard[6] === "X" && 
         currentGameboard[7] === "X" &&
         currentGameboard[8] === "X") {
             playerOne.win();
+            _endGame();
         }
         else if (currentGameboard[6] === "O" && 
         currentGameboard[7] === "O" &&
         currentGameboard[8] === "O") {
             playerTwo.win();
+            _endGame();
         }
         else if (currentGameboard[0] === "X" && 
         currentGameboard[3] === "X" &&
         currentGameboard[6] === "X") {
             playerOne.win();
+            _endGame();
         }
         else if (currentGameboard[0] === "O" && 
         currentGameboard[3] === "O" &&
         currentGameboard[6] === "O") {
             playerTwo.win();
+            _endGame();
         }
         else if (currentGameboard[1] === "X" && 
         currentGameboard[4] === "X" &&
         currentGameboard[7] === "X") {
             playerOne.win();
+            _endGame();
         }
         else if (currentGameboard[1] === "O" && 
         currentGameboard[4] === "O" &&
         currentGameboard[7] === "O") {
             playerTwo.win();
+            _endGame();
         }
         else if (currentGameboard[2] === "X" && 
         currentGameboard[5] === "X" &&
         currentGameboard[8] === "X") {
             playerOne.win();
+            _endGame();
         }
         else if (currentGameboard[2] === "O" && 
         currentGameboard[5] === "O" &&
         currentGameboard[8] === "O") {
             playerTwo.win();
+            _endGame();
         }
         else if (currentGameboard[0] === "X" && 
         currentGameboard[4] === "X" &&
         currentGameboard[8] === "X") {
-            console.log("ran!")
             playerOne.win();
+            _endGame();
         }
         else if (currentGameboard[0] === "O" && 
         currentGameboard[4] === "O" &&
         currentGameboard[8] === "O") {
             playerTwo.win();
+            _endGame();
         }
         else if (currentGameboard[2] === "X" && 
         currentGameboard[4] === "X" &&
         currentGameboard[6] === "X") {
             playerOne.win();
+            _endGame();
         }
         else if (currentGameboard[2] === "O" && 
         currentGameboard[4] === "O" &&
         currentGameboard[6] === "O") {
             playerTwo.win();
+            _endGame();
         }
     }
     return {currentGameboard, addToGameboard, resetGame};
@@ -111,6 +134,7 @@ function Player(letterChoice) {
     function win() {
         this.score++;
         documentElement.updateScore(this.letter);
+        documentElement.updatePopUpText(this.letter);
     }
     function updateName(nameInput) {
         console.log(nameInput);
@@ -134,8 +158,11 @@ const documentElement = {
     playerOneScoreCard: document.querySelector(".player-one-score"),
     playerTwoScoreCard: document.querySelector(".player-two-score"),
 
+    popUp: document.querySelector(".game-end-pop-up"),
+    newGameButton: document.querySelector(".new-game-button"),
+    popUpText: document.querySelector(".who-won").textContent,
+
     updateScore (playerLetter) {
-        console.log("ran!")
         if (playerLetter === "X") {
             documentElement.playerOneScoreCard.textContent = `Score: ${playerOne.score}`;
         } 
@@ -143,6 +170,14 @@ const documentElement = {
             documentElement.playerTwoScoreCard.textContent = `Score: ${playerTwo.score}`;
         }
         
+    },
+    updatePopUpText (playerLetter) {
+        if (playerLetter === "X") {
+            document.querySelector(".who-won").textContent = `Player One Won`;
+        } 
+        else if (playerLetter === "O") {
+            document.querySelector(".who-won").textContent = `Player Two Won`;
+        }
     }
 };
 
@@ -168,6 +203,10 @@ documentElement.playerOneNameButton.addEventListener("click", ()=> {
 documentElement.playerTwoNameButton.addEventListener("click", ()=> {
     changePlayerName(2);
 });
+
+documentElement.newGameButton.addEventListener("click", () => {
+    gameBoard.resetGame();
+})
 
 function changePlayerName(playerNum) {
     if (playerNum === 1) {
