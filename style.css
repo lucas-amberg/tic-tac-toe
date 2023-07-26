@@ -18,6 +18,7 @@
     --second-color: #c0c5cd;
     --third-color: #3e588f;
     --dark-color: #203562;
+    background-color: #e3e8f8;
 }
 
 .main-container {
@@ -195,8 +196,23 @@ a {
     .player {
       display: none;
     }
+    .game-grid {
+        width: 350px;
+        height: 350px;
+        grid-template-columns: repeat(3, 90px);
+        grid-template-rows: repeat(3, 90px);
+    }
+    .game-button {
+        font-family: Lilita One;
+        color: var(--dark-color);
+        background-color: var(--second-color);
+        font-size: 5rem;
+        border-radius: 5px;
+        border:0;
+    }
     .mobile-score {
         display: inherit;
+        font-size: 1rem;
     }
   }
 
