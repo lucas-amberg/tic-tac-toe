@@ -123,8 +123,29 @@
     color: var(--light-color);
 }
 
+.player-name-change {
+    font-size: 2rem;
+}
+
 @media (max-width: 975px) {
     .player {
       display: none;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .game-grid {
+        width: 250px;
+        height: 250px;
+        grid-template-columns: repeat(3, 60px);
+        grid-template-rows: repeat(3, 60px);
+    }
+    .game-button {
+        font-family: Lilita One;
+        color: var(--dark-color);
+        background-color: var(--second-color);
+        font-size: 3rem;
+        border-radius: 5px;
+        border:0;
     }
   }
