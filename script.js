@@ -132,9 +132,9 @@ const gameBoard = function() {
     return {currentGameboard, addToGameboard, resetGame};
 }();
 
-function Player(letterChoice) {
+function Player(letterChoice, nameChoice) {
     let score = 0;
-    let name = "Player";
+    let name = nameChoice;
     let letter = letterChoice;
     function win() {
         this.score++;
@@ -182,19 +182,19 @@ const documentElement = {
     },
     updatePopUpText (winner) {
         if (winner === "X") {
-            document.querySelector(".who-won").textContent = `Player One Won`;
+            document.querySelector(".who-won").textContent = `${playerOne.name} Wins`;
         } 
         else if (winner === "O") {
-            document.querySelector(".who-won").textContent = `Player Two Won`;
+            document.querySelector(".who-won").textContent = `${playerTwo.name} Wins`;
         }
         else if (winner === "tie") {
-            document.querySelector(".who-won").textContent = `Cats Game`;
+            document.querySelector(".who-won").textContent = `Cats Game (Tie)`;
         }
     }
 };
 
-playerOne = Player("X");
-playerTwo = Player("O");
+playerOne = Player("X", "Player One");
+playerTwo = Player("O", "Player Two");
 currentTurn = "X";
 
 documentElement.gameButtons.forEach((item) => {
