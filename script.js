@@ -24,6 +24,7 @@ const gameBoard = function() {
         documentElement.gameButtons.forEach((item) => {
             item.setAttribute("disabled", true);
         })
+        documentElement.updateMobileScore();
         documentElement.popUp.style.display = "flex";
     }
     function _checkGameStatus() {
@@ -165,6 +166,10 @@ const documentElement = {
     popUp: document.querySelector(".game-end-pop-up"),
     newGameButton: document.querySelector(".new-game-button"),
     popUpText: document.querySelector(".who-won").textContent,
+
+    updateMobileScore() {
+        document.querySelector(".mobile-score").textContent = `Score: ${playerOne.score} - ${playerTwo.score}`
+    },
 
     updateScore (playerLetter) {
         if (playerLetter === "X") {

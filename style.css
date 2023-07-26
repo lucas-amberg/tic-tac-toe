@@ -161,6 +161,12 @@
     font-family: Lilita One;
 }
 
+.mobile-score {
+    font-size: 1.5rem;
+    color: var(--light-color);
+    display:none;
+}
+
 
 @media (max-width: 975px) {
     .player {
@@ -168,7 +174,7 @@
     }
   }
 
-  @media (max-width: 400px) {
+@media (max-width: 400px) {
     .game-grid {
         width: 250px;
         height: 250px;
@@ -183,4 +189,10 @@
         border-radius: 5px;
         border:0;
     }
-  }
+    .game-end-pop-up {
+        padding: 5px;
+    }
+    .mobile-score {
+        display: inherit;
+    }
+}
