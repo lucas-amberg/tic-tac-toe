@@ -123,6 +123,10 @@ const gameBoard = function() {
             playerTwo.win();
             _endGame();
         }
+        else if (currentGameboard.includes("") === false) {
+            documentElement.updatePopUpText("tie");
+            _endGame();
+        }
     }
     return {currentGameboard, addToGameboard, resetGame};
 }();
@@ -171,12 +175,15 @@ const documentElement = {
         }
         
     },
-    updatePopUpText (playerLetter) {
-        if (playerLetter === "X") {
+    updatePopUpText (winner) {
+        if (winner === "X") {
             document.querySelector(".who-won").textContent = `Player One Won`;
         } 
-        else if (playerLetter === "O") {
+        else if (winner === "O") {
             document.querySelector(".who-won").textContent = `Player Two Won`;
+        }
+        else if (winner === "tie") {
+            document.querySelector(".who-won").textContent = `Cats Game`;
         }
     }
 };
