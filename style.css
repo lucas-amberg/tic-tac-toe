@@ -195,6 +195,9 @@ a {
     .player {
       display: none;
     }
+    .mobile-score {
+        display: inherit;
+    }
   }
 
 @media (max-width: 400px) {
